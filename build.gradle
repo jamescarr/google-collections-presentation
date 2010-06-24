@@ -1,0 +1,16 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories{
+  mavenCentral()
+}
+
+dependencies{
+  testCompile 'junit:junit:4.8'
+  compile     'com.google:google-collections:1.0'
+}
+
+task "create-dirs" << {
+  sourceSets.all*.java.srcDirs*.each { it.mkdirs() }
+  sourceSets.all*.resources.srcDirs*.each { it.mkdirs() }
+}
