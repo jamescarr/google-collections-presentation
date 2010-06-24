@@ -3,6 +3,7 @@ package org.jamescarr.googlecollections;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
+import java.util.Comparator;
 import java.util.List;
 
 import org.junit.Test;
@@ -42,4 +43,5 @@ public class OrderingExample {
 		assertThat(ordering.max("clojure", "java"), equalTo("java"));
 		assertThat(ordering.min("scala", "java"), equalTo("scala"));
 	}
+	
 }
