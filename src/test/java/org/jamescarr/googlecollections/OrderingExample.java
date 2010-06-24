@@ -1,16 +1,15 @@
 package org.jamescarr.googlecollections;
 
+import static java.util.Arrays.asList;
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.junit.Assert.assertThat;
 
-import java.util.Comparator;
 import java.util.List;
 
 import org.junit.Test;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Ordering;
-import static java.util.Arrays.asList;
 
 public class OrderingExample {
 	private final ImmutableList<String> languages = ImmutableList.of("java", "scala", "groovy", "clojure");
