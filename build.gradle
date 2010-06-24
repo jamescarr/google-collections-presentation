@@ -6,8 +6,8 @@ repositories{
 }
 
 dependencies{
-  testCompile 'junit:junit:4.8'
-  compile     'com.google:google-collections:1.0'
+  testCompile 'junit:junit:4.8.1'
+  compile     'com.google.collections:google-collections:1.0'
 }
 
 task "create-dirs" << {
