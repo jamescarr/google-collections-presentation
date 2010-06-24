@@ -10,24 +10,27 @@ import com.google.common.collect.MapMaker;
 
 
 public class MapMakerExample {
+	private ConcurrentMap<String, String> map = new MapMaker()
+		.weakKeys()
+		.weakValues()
+		.expiration(1, TimeUnit.NANOSECONDS)
+		.concurrencyLevel(32)
+		.makeComputingMap(new Function<String, String>() {
+			@Override
+			public String apply(String input) {
+				return new StringBuffer(input).reverse().toString() 
+				+ System.currentTimeMillis();
+			}
+		});
+	
+	
 	@Test
 	public void anExampleOfMapMaker(){
-		ConcurrentMap<String, String> map = new MapMaker()
-			.weakKeys()
-			.weakValues()
-			.expiration(1, TimeUnit.NANOSECONDS)
-			.makeComputingMap(new Function<String, String>() {
-				@Override
-				public String apply(String input) {
-					return new StringBuffer(input).reverse().toString() 
-								+ System.currentTimeMillis();
-				}
-			});
+		map.put("one", "two");
 		
 		System.out.println(map.get("one"));
 		System.out.println(map.get("one"));
 		System.out.println(map.get("one"));
-		System.out.println(map.get("one"));
-		System.out.println(map.get("one"));
 	}
+	
 }
